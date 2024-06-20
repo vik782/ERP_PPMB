@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout, Button } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import SideMenu, { sampleItems } from './SideMenu';
 
 const { Sider } = Layout;
@@ -14,6 +13,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
   return (
+    
     <Sider 
         collapsible 
         trigger={null}

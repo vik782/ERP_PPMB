@@ -13,7 +13,8 @@ export interface DesignTokens {
     borderRadiusBase: string;
     borderColorBase: string;
     boxShadowBase: string;
-    groupTitleColor: string;    
+    groupTitleColor: string; 
+    colorBgContainer: string,   
   }
   
   export const designTokens: DesignTokens = {
@@ -31,5 +32,6 @@ export interface DesignTokens {
     borderColorBase: '#d9d9d9',
     boxShadowBase: '0 2px 8px rgba(0, 0, 0, 0.15)',
     groupTitleColor: '#f5222d',
+    colorBgContainer: '#f6ffed', // background of menu
   };
   

@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu } from "antd";
+import { ConfigProvider, Menu } from "antd";
 import {
     AppstoreOutlined,
     ContainerOutlined,
