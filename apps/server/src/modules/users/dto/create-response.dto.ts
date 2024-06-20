@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+import { User } from '@prisma/client';
 export class CreateUserResponse {
-    user: User;
+  user: User;
 }

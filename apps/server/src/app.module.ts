@@ -9,21 +9,12 @@ import { AuthController } from './modules/auth/auth.controller';
 import { UsersController } from './modules/users/users.controller';
 import { AuthService } from './modules/auth/auth.service';
 import { PrismaService } from './modules/prisma/prisma.service';
-import { JwtStrategy } from './modules/auth/jwt.strategy';
-import { LocalStrategy } from './modules/auth/local.strategy';
+import { JwtStrategy } from './modules/auth/jwt/jwt.strategy';
+import { LocalStrategy } from './modules/auth/passport/local.strategy';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    PrismaModule,
-    AuthModule,
-    UsersModule,
-  ],
-  controllers: [
-    AppController,
-    AuthController,
-    UsersController
-  ],
+  imports: [ConfigModule.forRoot(), PrismaModule, AuthModule, UsersModule],
+  controllers: [AppController, AuthController, UsersController],
   providers: [
     AppService,
     PrismaService,
