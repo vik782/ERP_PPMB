@@ -14,15 +14,6 @@ export class UsersService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async getProfile(user: User): Promise<User> {
-    const username = user.username
-    const userExists = await this.prismaService.user.findUnique({
-      where: { username },
-    });
-
-    if (!userExists) {
-      throw new NotFoundException();
-    }
-
     delete user.password;
     return user;
   }
@@ -33,7 +24,7 @@ export class UsersService {
     });
 
     if (existing) {
-      throw new ConflictException('email already exists');
+      throw new ConflictException('Email already exists');
     }
 
     const salt = Number(process.env.BCRYPT_SALT);

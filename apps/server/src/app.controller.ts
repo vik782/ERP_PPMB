@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('/test')
   getHello(): string {
     const s = process.env.PORT;
     return this.appService.getHello();

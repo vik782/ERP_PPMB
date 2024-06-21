@@ -6,7 +6,6 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { CreateUserResponse } from './dto/create-response.dto';
 import { userProfile } from './dto/get-profile.dto';
 import { User } from '@prisma/client';
-import { Public } from '../auth/jwt/jwt-auth.decorator';
 
 @Controller('users')
 export class UsersController {
