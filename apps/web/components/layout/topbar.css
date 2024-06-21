@@ -1,0 +1,33 @@
+.topbar {
+    height: 64px;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f6ffed; /* Adjust the background color if needed */
+    padding: 0 20px;
+}
+  
+.topbar-left {
+    display: flex;
+    align-items: center;
+    color: black; /* Adjust the color if needed */
+    font-size: 16px; /* Adjust the font size if needed */
+}
+
+.topbar-left > div {
+    margin-left: 10px; /* Adjust the spacing between elements */
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    color: black; /* Adjust the color if needed */
+}
+
+.topbar-right > div {
+    margin-right: 10px; /* Adjust the spacing between elements */
+}
+  
