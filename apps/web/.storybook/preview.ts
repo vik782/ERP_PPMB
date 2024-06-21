@@ -4,7 +4,7 @@ import { designTokens } from '../styles/designTokens';
 import type { Preview } from '@storybook/react';
 
 // Define the decorator with a proper type
-const withAntdTheme = (Story: React.FC) => (
+/*const withAntdTheme = (Story: React.FC) => (
   <ConfigProvider
     theme={{
       token: designTokens,
@@ -13,7 +13,7 @@ const withAntdTheme = (Story: React.FC) => (
     <Story />
   </ConfigProvider>
 );
-
+*/
 // Define the preview configuration with the decorator
 const preview: Preview = {
   parameters: {
@@ -28,7 +28,7 @@ const preview: Preview = {
     },
     tags: ['autodocs'],
   },
-  decorators: [withAntdTheme],
+  //decorators: [withAntdTheme],
 };
 
 export default preview;

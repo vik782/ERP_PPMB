@@ -18,8 +18,8 @@ export interface DesignTokens {
   }
   
   export const designTokens: DesignTokens = {
-    colorPrimary: '#1DA57A',
-    colorLink: '#1DA57A',
+    colorPrimary: '#a51d48',
+    colorLink: '#a51d48',
     colorSuccess: '#52c41a',
     colorWarning: '#faad14',
     colorError: '#f5222d',

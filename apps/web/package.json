@@ -9,7 +9,8 @@
     "lint": "next lint",
     "kill": "kill -9 $(lsof -ti:3000)",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "sb": "npm run build-storybook && npm run storybook"
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
@@ -43,7 +44,7 @@
     "@storybook/react": "^8.1.10",
     "@storybook/test": "^8.1.10",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
-    "antd": "^5.18.2",
+    "antd": "^5.18.3",
     "daisyui": "^3.2.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-next": "^0.0.0",

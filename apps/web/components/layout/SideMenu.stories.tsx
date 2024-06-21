@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SideMenu, { sampleItems } from './SideMenu';
+import SideMenu from './SideMenu';
+import { sampleItems } from './MenuConfig';
 
 const meta = {
   title: 'Example/SideMenu',
