@@ -9,6 +9,7 @@ import { Breadcrumb, Button, Layout, MenuProps } from 'antd';
 import { User } from '@web/types/global';
 import { useState } from 'react';
 import Sidebar from '@web/components/layout/Sidebar';
+import DokumenLelang from '@web/components/dokumenLelang/DokumenLelang';
 
 const { Header, Content, Sider } = Layout;
 
@@ -53,16 +54,8 @@ export default function Home() {
                   flexGrow: '1'
                 }}
               >
-                <div style={{height:'500px', background:'yellow'}}>
-                Content
-                </div>
-                <div style={{height:'500px'}}>
-                Content
-                </div>
-                <div style={{height:'500px'}}>
-                Content
-                </div>
-
+                <DokumenLelang/>
+                
               </Content>
           </Layout>
         </Layout>
