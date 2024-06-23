@@ -1,7 +1,5 @@
 'use client'
 import React from 'react';
-import { trpc } from '@web/app/trpc';
-import SideMenu from '@web/components/layout/SideMenu';
 import { sampleItems } from '@web/components/layout/MenuConfig';
 import Topbar from '@web/components/layout/Topbar';
 import { LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
