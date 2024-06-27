@@ -2,18 +2,32 @@
 import React from 'react';
 import { User } from '@web/types/global';
 import { useState } from 'react';
+import { Breadcrumb, Layout, MenuProps } from 'antd';
+import { Content, Header } from 'antd/es/layout/layout';
+import Topbar from '@web/components/layout/Topbar';
+import Sider from 'antd/es/layout/Sider';
+import { LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { sampleItems } from '@web/components/layout/MenuConfig';
+import Sidebar from '@web/components/layout/Sidebar';
+import SideMenu from '@web/components/layout/SideMenu';
 
+const topbarItems: MenuProps['items'] = [
+  { key: '1', label: 'Settings' },
+  { key: '2', icon: <LogoutOutlined />, label: 'Logout' },
+];
+
+const sampleUser: User = {
+  id: '1',
+  name: 'Fiona Apple',
+  role: 'user',
+  company: 'Panca Prima Maju Bersama'
+};
 
 export default function Home() {
-  //const { greeting } = await trpc.getUsers.query({
-  //  name: `Tom from backend 💚`,
-  //});
 
-  const [collapsed, setCollapsed] = useState(false);
-  
   return (
     <>
-      Hello
+      Nothing here!
     </>
   );
 }

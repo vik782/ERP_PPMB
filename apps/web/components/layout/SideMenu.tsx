@@ -8,18 +8,20 @@ interface SideMenuProps {
     menuItems: MenuProps['items'];
 
     /**
-     * Edit styling of menu bar
+     * Proper inline collapse when Sider is collapsed
      */
+    collapsed?: boolean;
 }
 
-const SideMenu: React.FC<SideMenuProps> = ({ menuItems }) => {
+const SideMenu: React.FC<SideMenuProps> = ({ menuItems, collapsed }) => {
     return (
         <Menu
-            style={{ height: '100%', borderRight: 0}}
+            style={{ height: '100%', borderRight: 0, flexGrow: 1}}
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
             mode="inline"
             items={menuItems}
+            inlineCollapsed={collapsed}
         />
     );
 };

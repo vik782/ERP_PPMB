@@ -26,10 +26,10 @@
   },
   "homepage": "https://github.com/vik782/ERP_PPMB#readme",
   "dependencies": {
-    "@next/font": "^14.2.4",
+    "antd": "^5.18.3",
     "next": "^14.2.4",
     "react": "^18.3.1",
-    "tailwindcss": "3.3.2"
+    "storybook": "^8.1.11"
   },
   "devDependencies": {
     "@types/node": "20.14.9",

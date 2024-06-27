@@ -15,24 +15,18 @@ const { Header, Content, Sider } = Layout;
 
 export default function DashboardPage() {
     return (
-      <div>
+      <>
         <Breadcrumb style={{ margin: '16px 16px'}}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>List</Breadcrumb.Item>
         <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
-        <Content
-        style={{
-        padding: 24,
-        margin: 0,
-        position: 'relative',
-        overflowY: 'auto',
-        flexGrow: '1'
-        }}
-        >
-
-        </Content>
-      </div>
+        <Content style={{ background: 'green', flexGrow: 1, overflowY: 'auto' }}>
+            <div style={{ background: 'red', height: '700px' }}>
+              Inner Content
+            </div>
+          </Content>
+      </>
     );
   }
 

@@ -5,7 +5,7 @@ import { User } from '@web/types/global';
 import TopbarDropdown from './TopbarDropdown';
 import './topbar.css';
 
-const { Header } = Layout;
+import { Header } from "antd/lib/layout/layout";
 
 interface TopbarProps {
   /**
@@ -17,14 +17,21 @@ interface TopbarProps {
    * For Topbar, just take menuitems directly
    */
   topDropdownItems: MenuProps['items'];
+
+  /**
+   * Toggle hook for Sidebar collapse
+   */
+  onToggleSidebar: () => void;
 }
 
-const Topbar: React.FC<TopbarProps> = ({ user, topDropdownItems }) => {
+const Topbar: React.FC<TopbarProps> = ({ user, topDropdownItems, onToggleSidebar }) => {
   return (
     <Header className="topbar">
         <div className='topbar-left'>
-            <MenuOutlined />
-            <div>{user.company}</div>
+          <div className="menu-icon-wrapper" onClick={onToggleSidebar}>
+            <MenuOutlined style={{ cursor: 'pointer' }} />
+          </div>
+          <div>{user.company}</div>
         </div>
         
         <div className='topbar-right'>
