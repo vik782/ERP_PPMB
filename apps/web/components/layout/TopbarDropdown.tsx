@@ -17,21 +17,15 @@ interface DropdownProps {
 }
 
 const TopbarDropdown: React.FC<DropdownProps> = ({ user, menuitems }) => {
-  const handleMenuClick: MenuProps['onClick'] = e => {
-    console.log('click', e);
-  };
-
   return (
     <Dropdown 
     menu={{ items: menuitems}}
     trigger={['click']}
     >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-            {user.name}
-          <DownOutlined />
-        </Space>
-      </a>
+      <Space>
+          {user.name}
+        <DownOutlined />
+      </Space>
     </Dropdown>
   );
 };
