@@ -14,16 +14,17 @@ export interface DesignTokens {
     borderColorBase: string;
     boxShadowBase: string;
     groupTitleColor: string; 
-    colorBgContainer: string,   
+    //itemActiveBg: string;
+    colorBgContainer: string;   
   }
   
   export const designTokens: DesignTokens = {
-    colorPrimary: '#a51d48',
-    colorLink: '#a51d48',
+    colorPrimary: '#013276', // changes hover in menu
+    colorLink: '#013276', // changes color of text in menu
     colorSuccess: '#52c41a',
     colorWarning: '#faad14',
     colorError: '#f5222d',
-    fontSizeBase: '14px',
+    fontSizeBase: '12px',
     headingColor: 'rgba(0, 0, 0, 0.85)',
     textColor: 'rgba(0, 0, 0, 0.65)',
     textColorSecondary: 'rgba(0, 0, 0, 0.45)',
@@ -32,6 +33,7 @@ export interface DesignTokens {
     borderColorBase: '#d9d9d9',
     boxShadowBase: '0 2px 8px rgba(0, 0, 0, 0.15)',
     groupTitleColor: '#f5222d',
-    colorBgContainer: '#f6ffed', // background of menu
+    //itemActiveBg: '#faad14', // Background color of menu item when active',
+    colorBgContainer: '#DDE2E5', // background of menu sider
   };
   

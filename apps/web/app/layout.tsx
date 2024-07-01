@@ -6,13 +6,14 @@ import { designTokens } from '../styles/designTokens';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import React from 'react';
-import { sampleItems } from '@web/components/layout/MenuConfig';
+import { adminItems, sampleItems } from '@web/components/layout/MenuConfig';
 import Topbar from '@web/components/layout/Topbar';
 import { LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Breadcrumb, Button, Layout, MenuProps } from 'antd';
 import { User } from '@web/types/global';
 import { useState } from 'react';
 import Sidebar from '@web/components/layout/Sidebar';
+import NavBreadcrumb from '@web/components/layout/NavBreadcrumb';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -53,7 +54,7 @@ export default function RootLayout({
             token: designTokens,
           }}
         >
-          <Layout className="layout">
+          <Layout className="layout" >
               <Topbar 
                 user={sampleUser} 
                 topDropdownItems={topbarItems} 
@@ -63,10 +64,11 @@ export default function RootLayout({
             <Layout hasSider style={{ height: 'calc(100vh - 64px)' }}>
               <Sidebar
                 collapsed={collapsed}
-                sideMenuItems={sampleItems}
+                sideMenuItems={adminItems}
               />
 
-              <Layout style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+              <Layout style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, background:"00000"}}>
+              <NavBreadcrumb />
                 {children}
               </Layout>
 

@@ -13,16 +13,14 @@ import Sidebar from '@web/components/layout/Sidebar';
 
 const { Header, Content, Sider } = Layout;
 
-export default function DashboardPage() {
+export default function innerPage() {
     return (
       <>
-        <Content style={{ background: 'green', flexGrow: 1, overflowY: 'auto' }}>
+        <Content style={{ padding:'10px', flexGrow: 1, overflowY: 'auto' }}>
             <div style={{ background: 'red', height: '700px' }}>
-              Dashboard Content
+              Inner Dashboard Page
             </div>
           </Content>
       </>
     );
   }
-
-  
