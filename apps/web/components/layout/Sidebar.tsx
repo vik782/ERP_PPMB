@@ -22,6 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, sideMenuItems }) => {
       trigger={null}
       collapsed={collapsed}
       collapsedWidth={70}
+      width={250}
     >
       <SideMenu menuItems={sideMenuItems} collapsed={collapsed} />
     </Sider>

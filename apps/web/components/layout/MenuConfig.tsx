@@ -18,21 +18,21 @@ import {
 
 export const adminItems: MenuProps['items'] = [
   MODULES.DASHBOARD,
-  MODULES.ANALYTICS,
-  MODULES.REPORTS,
-  MODULES.MESSAGES,
-  MODULES.SETTINGS,
+  MODULES.LELANG,
+  MODULES.RFQ,
+  MODULES.QUOTATION,
+  MODULES.PO,
 ];
 
 export const userItems: MenuProps['items'] = [
   MODULES.DASHBOARD,
-  MODULES.MESSAGES,
+  MODULES.LELANG,
   {
     key: 'sub1',
     label: 'User Navigation One',
     children: [
-      MODULES.REPORTS,
-      MODULES.SETTINGS,
+      MODULES.RFQ,
+      MODULES.RFQ,
     ],
   },
 ];

@@ -31,56 +31,35 @@ export const MODULES = {
       },
     ],
   },
-  ANALYTICS: {
-    key: '/analytics',
+  LELANG: {
+    key: '/lelang',
     icon: <DesktopOutlined />,
-    label: <Link href="/analytics">Analytics</Link>,
-    title: 'Analytics',
+    label: <Link href="/lelang">Lelang</Link>,
+    title: 'Lelang',
     children: [
       {
-        key: '/analytics/inner',
-        label: <Link href="/analytics/inner">Inner Analytics</Link>,
-        title: 'Inner Analytics',
+        key: '/lelang/list',
+        label: <Link href="/lelang/list">List Dokumen Lelang</Link>,
+        title: 'List Dokumen Lelang',
       },
     ],
   },
-  REPORTS: {
-    key: '/reports',
+  RFQ: {
+    key: '/rfq',
     icon: <ContainerOutlined />,
-    label: <Link href="/reports">Reports</Link>,
-    title: 'Reports',
-    children: [
-      {
-        key: '/reports/add',
-        label: <Link href="/reports/add">Add Report</Link>,
-        title: 'Add Report',
-      },
-    ],
+    label: <Link href="/rfq">Request For Quotation</Link>,
+    title: 'Request For Quotation',
   },
-  MESSAGES: {
-    key: '/messages',
+  QUOTATION: {
+    key: '/quotation',
     icon: <MailOutlined />,
-    label: <Link href="/messages">Messages</Link>,
-    title: 'Messages',
-    children: [
-      {
-        key: '/messages/inner',
-        label: <Link href="/messages/inner">Inner Messages</Link>,
-        title: 'Inner Messages',
-      },
-    ],
+    label: <Link href="/quotation">Quotation</Link>,
+    title: 'Quotation',
   },
-  SETTINGS: {
-    key: '/settings',
+  PO: {
+    key: '/po',
     icon: <AppstoreOutlined />,
-    label: <Link href="/settings">Settings</Link>,
-    title: 'Settings',
-    children: [
-      {
-        key: '/settings/inner',
-        label: <Link href="/settings/inner">Inner Settings</Link>,
-        title: 'Inner Settings',
-      },
-    ],
+    label: <Link href="/po">Pre-Order</Link>,
+    title: 'Pre-Order',
   },
 };
