@@ -1,3 +1,7 @@
+/**
+ * This is the navigation in the top above the content to show in which section you are in
+ * This makes clickable links, continuous dev as we work on the modules for navigation
+ */
 'use client';
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';

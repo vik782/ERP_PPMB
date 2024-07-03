@@ -1,3 +1,9 @@
+/**
+ * Defines the modules or pages that will be made in development.
+ * Will continue to grow and format subject to change.
+ * Used for standardization purposes.
+ */
+
 export const breadcrumbNameMap = {
   '/': 'Home',
   '/dasboard': 'Home',
@@ -15,6 +21,7 @@ import {
   MailOutlined,
   PieChartOutlined,
 } from '@ant-design/icons';
+
 import Link from 'next/link';
 
 export const MODULES = {

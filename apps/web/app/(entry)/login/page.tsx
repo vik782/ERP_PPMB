@@ -1,5 +1,10 @@
+/**
+ * Login page handles the submission and validation of login creds.
+ * will redirect to dashboard depending on server response.
+ * Uses component LoginForm.
+ */
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { FormProps } from 'antd';
 import LoginForm, { LoginFieldType } from '@web/components/forms/loginform/LoginForm';
@@ -8,10 +13,12 @@ const NEXT_PUBLIC_NESTJS_SERVER = process.env.NEXT_PUBLIC_NESTJS_SERVER;
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const onFinish: FormProps<LoginFieldType>['onFinish'] = async (values) => {
+    console.log(`${NEXT_PUBLIC_NESTJS_SERVER}/login`);
 
-    console.log('Success:', values); // remember delete
+    console.log('Success:', values);
 
     // Simulate login API call
     const response = await fetch(`${NEXT_PUBLIC_NESTJS_SERVER}/login`, {
@@ -38,8 +45,9 @@ const LoginPage: React.FC = () => {
       // Redirect to dashboard
       router.push('/dashboard');
     } else {
+      const errorData = await response.json();
       // Handle login error
-      console.error('Login failed');
+      setErrorMessage(errorData.message || 'Login failed');
     }
   };
 
@@ -49,7 +57,7 @@ const LoginPage: React.FC = () => {
 
   const handleForgotPassword = () => {
     console.log("Handle forgot password logic here");
-    // Navigate to a forgot password page or open a modal
+    // You can navigate to a forgot password page or open a modal
     // router.push('/forgot-password'); // Example navigation
   };
 
@@ -58,10 +66,12 @@ const LoginPage: React.FC = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       onForgotPassword={handleForgotPassword}
+      errorMessage={errorMessage}
     />
   );
 };
 
 export default LoginPage;
+
 
 
