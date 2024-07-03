@@ -6,7 +6,7 @@ import { LogoutOutlined } from '@ant-design/icons';
 import { User } from '@web/types/global';
 
 const meta = {
-  title: 'Example/Topbar',
+  title: 'Layout/Topbar',
   component: Topbar,
   tags: ['autodocs'],
 } satisfies Meta<typeof Topbar>;

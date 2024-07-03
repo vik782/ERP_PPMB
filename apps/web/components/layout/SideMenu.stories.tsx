@@ -3,7 +3,7 @@ import SideMenu from './SideMenu';
 import { sampleItems } from './MenuConfig';
 
 const meta = {
-  title: 'Example/SideMenu',
+  title: 'Layout/SideMenu',
   component: SideMenu,
   tags: ['autodocs'],
 } satisfies Meta<typeof SideMenu>;
