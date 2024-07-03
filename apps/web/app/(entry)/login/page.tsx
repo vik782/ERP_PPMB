@@ -47,11 +47,19 @@ const LoginForm: FC = () => {
     }
   };
 
+  /**
+   * @param e 
+   *  only implement if we require this
+   */
   const handleForgotPassword = (e: FormEvent) => {
     e.preventDefault();
     console.log("Handle password recovery logic here");
   };
 
+  /**
+   * @param e 
+   *  only implement if we require this
+   */
   const handleRegister = (e: FormEvent) => {
     e.preventDefault();
     console.log("Handle registration logic here");
@@ -68,7 +76,7 @@ const LoginForm: FC = () => {
     >
       <Card style={{ width: 500 }}>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Title level={2}>Company Logo </Title>
+          <Title level={2}>PPMB GROUP ERP </Title>
         </div>
         <Form
           name="normal_login"

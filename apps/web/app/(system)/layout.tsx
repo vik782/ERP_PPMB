@@ -1,9 +1,9 @@
 'use client';
 // app/layout.tsx
-import { metadata } from './metadata';
+import { metadata } from '../metadata';
 import { ConfigProvider } from 'antd';
-import { designTokens } from '../styles/designTokens';
-import './globals.css';
+import { designTokens } from '../../styles/designTokens';
+import '../globals.css';
 import { Inter } from 'next/font/google';
 import React from 'react';
 import { adminItems, sampleItems } from '@web/components/layout/MenuConfig';
@@ -14,6 +14,7 @@ import { User } from '@web/types/global';
 import { useState } from 'react';
 import Sidebar from '@web/components/layout/Sidebar';
 import NavBreadcrumb from '@web/components/layout/NavBreadcrumb';
+import { Content } from 'antd/lib/layout/layout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -69,7 +70,9 @@ export default function RootLayout({
 
               <Layout style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, background:"00000"}}>
               <NavBreadcrumb />
+              <Content style={{ padding: '10px', flexGrow: 1, overflowY: 'auto' }}>
                 {children}
+               </Content> 
               </Layout>
 
             </Layout>
