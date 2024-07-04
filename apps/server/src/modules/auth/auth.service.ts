@@ -8,6 +8,7 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { AuthResponse } from './dto/auth-response.dto';
 import { LoginUserDto } from './dto/login-user.dto';
+import { User } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -37,6 +38,7 @@ export class AuthService {
 
   async login(user: any): Promise<AuthResponse> {
     const payload = { username: user.username };
-    return { access_token: this.jwtService.sign(payload) };
+    const { password: string, ...res } = user as User;
+    return { user: user, access_token: this.jwtService.sign(payload) };
   }
 }
