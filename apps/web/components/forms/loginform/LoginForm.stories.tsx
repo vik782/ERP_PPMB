@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
-import LoginForm from './LoginForm';
+import type { FormProps } from 'antd';
+import LoginForm, { LoginFieldType } from './LoginForm';
 
 const meta = {
   title: 'Forms/LoginForm',
@@ -12,4 +12,22 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+const onFinish: FormProps<LoginFieldType>['onFinish'] = () => {
+
+};
+
+const onFinishFailed: FormProps<LoginFieldType>['onFinishFailed'] = () => {
+};
+
+const handleForgotPassword = () => {
+};
+
+export const Default: Story = {
+  args: {
+    onFinish: onFinish,
+    onFinishFailed: onFinishFailed,
+    onForgotPassword: handleForgotPassword,
+    hasError: false,
+    loading: false,
+  }
+};

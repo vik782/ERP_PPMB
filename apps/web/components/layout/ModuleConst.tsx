@@ -23,6 +23,12 @@ import {
 } from '@ant-design/icons';
 
 import Link from 'next/link';
+export interface Module {
+  key: string;
+  icon?: React.ReactNode;
+  label: React.ReactNode;
+  children?: Module[];
+}
 
 export const MODULES = {
   DASHBOARD: {

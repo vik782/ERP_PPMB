@@ -27,9 +27,13 @@ const sampleUser: User = {
   company: 'Panca Prima Maju Bersama'
 };
 
+const toggleSidebar = () => {
+};
+
 export const Default: Story = {
   args: {
     user: sampleUser,
     topDropdownItems: topbarItems,
+    onToggleSidebar: toggleSidebar,
   },
 };
