@@ -27,8 +27,10 @@
   "homepage": "https://github.com/vik782/ERP_PPMB#readme",
   "dependencies": {
     "antd": "^5.18.3",
+    "axios": "^1.7.2",
     "next": "^14.2.4",
     "react": "^18.3.1",
+    "react-query": "^3.39.3",
     "storybook": "^8.1.11"
   },
   "devDependencies": {

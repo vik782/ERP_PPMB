@@ -29,21 +29,25 @@ interface LoginFormProps {
   onForgotPassword: () => void;
 
   /**
-   * Error message from server
+   * Error state from the server
    */
-  errorMessage?: string | null;
+  hasError: boolean;
+
+  /**
+   * Loading state
+   */
+  loading: boolean;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onFinish, onFinishFailed, onForgotPassword, errorMessage }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onFinish, onFinishFailed, onForgotPassword, hasError, loading }) => {
   return (
     <Card className="login-card">
       <div className="login-title">
         <Title level={2}>PPMB GROUP ERP</Title>
       </div>
-      {errorMessage && (
+      {hasError && (
         <Alert
-          message="Login Failed"
-          description={'Login credentials incorrect'}
+          message="Login credentials incorrect"
           type="error"
           showIcon
           style={{ marginBottom: '16px' }}
@@ -86,7 +90,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFinish, onFinishFailed, onForgo
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Button type="primary" htmlType="submit" className="login-form-button" loading={loading}>
             Log in
           </Button>
         </Form.Item>
@@ -96,5 +100,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFinish, onFinishFailed, onForgo
 };
 
 export default LoginForm;
+
 
 

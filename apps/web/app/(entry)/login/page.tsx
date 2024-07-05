@@ -4,51 +4,32 @@
  * Uses component LoginForm.
  */
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
+import { useMutation } from 'react-query';
 import type { FormProps } from 'antd';
 import LoginForm, { LoginFieldType } from '@web/components/forms/loginform/LoginForm';
-
-const NEXT_PUBLIC_NESTJS_SERVER = process.env.NEXT_PUBLIC_NESTJS_SERVER;
+import { loginAction } from '@web/app/actions/loginAction';
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const onFinish: FormProps<LoginFieldType>['onFinish'] = async (values) => {
-    console.log(`${NEXT_PUBLIC_NESTJS_SERVER}/login`);
-
-    console.log('Success:', values);
-
-    // Simulate login API call
-    const response = await fetch(`${NEXT_PUBLIC_NESTJS_SERVER}/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+  // Define the mutation
+  const mutation = useMutation(
+    async (values: LoginFieldType) => {
+      return loginAction(values.username!, values.password!);
+    },
+    {
+      onSuccess: (user) => {
+        // Store user data in local storage
+        localStorage.setItem('user', JSON.stringify(user));
+        router.push('/dashboard');
       },
-      body: JSON.stringify({
-        username: values.username,
-        password: values.password,
-      }),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      // Store token or any user data as needed
-      localStorage.setItem('token', data.token);
-
-      if (values.remember) {
-        localStorage.setItem("username", values.username!);
-        localStorage.setItem("password", values.password!);
-      }
-
-      // Redirect to dashboard
-      router.push('/dashboard');
-    } else {
-      const errorData = await response.json();
-      // Handle login error
-      setErrorMessage(errorData.message || 'Login failed');
     }
+  );
+
+  const onFinish: FormProps<LoginFieldType>['onFinish'] = (values) => {
+    mutation.mutate(values);
   };
 
   const onFinishFailed: FormProps<LoginFieldType>['onFinishFailed'] = (errorInfo) => {
@@ -56,7 +37,7 @@ const LoginPage: React.FC = () => {
   };
 
   const handleForgotPassword = () => {
-    console.log("Handle forgot password logic here");
+    console.log('Handle forgot password logic here');
     // You can navigate to a forgot password page or open a modal
     // router.push('/forgot-password'); // Example navigation
   };
@@ -66,12 +47,14 @@ const LoginPage: React.FC = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       onForgotPassword={handleForgotPassword}
-      errorMessage={errorMessage}
+      hasError={mutation.isError}
+      loading={mutation.isLoading} // Pass loading state to LoginForm
     />
   );
 };
 
 export default LoginPage;
+
 
 
 
