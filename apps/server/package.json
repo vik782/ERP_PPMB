@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "dev": "nest start --watch",
+    "restart": "kill -9 $(lsof -ti:4000) && yarn dev",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "migrate": "pnpm prisma migrate dev",

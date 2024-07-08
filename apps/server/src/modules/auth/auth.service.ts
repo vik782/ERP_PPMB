@@ -26,7 +26,7 @@ export class AuthService {
     if (!user) {
       throw new NotFoundException();
     }
-
+    
     const validatePassword = await bcrypt.compare(password, user.password);
 
     if (!validatePassword) {
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   async login(user: any): Promise<AuthResponse> {
-    const payload = { username: user.username };
+    const payload = { username: user.username, role: user.role };
     const { password: string, ...res } = user as User;
     return { user: user, access_token: this.jwtService.sign(payload) };
   }

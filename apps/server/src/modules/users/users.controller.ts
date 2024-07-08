@@ -6,6 +6,9 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { CreateUserResponse } from './dto/create-response.dto';
 import { userProfile } from './dto/get-profile.dto';
 import { User } from '@prisma/client';
+import { RolesGuard } from '../auth/role/role.guard';
+import { Role } from '../auth/role/role.enum';
+import { Roles } from '../auth/role/role.decorator';
 
 @Controller('users')
 export class UsersController {
@@ -16,7 +19,8 @@ export class UsersController {
     return this.usersService.createUser(createUserDto);
   }
 
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(Role.Marketing)
   @Get('/profile')
   getProfile(@Req() req: Request): Promise<userProfile> {
     const user = req.user;
