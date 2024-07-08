@@ -25,3 +25,8 @@
     background-color: red;
     color: white;
   }
+
+  .ant-form-item-tooltip {
+    padding: 10px !important;
+  }
+

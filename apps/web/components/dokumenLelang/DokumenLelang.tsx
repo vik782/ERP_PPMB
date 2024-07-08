@@ -1,12 +1,14 @@
 import React from "react";
 import { Button, Form, Input, Select, DatePicker, Radio, Upload, Space } from "antd";
-import { InboxOutlined } from "@ant-design/icons";
+import { InboxOutlined, InfoCircleOutlined} from "@ant-design/icons";
 import "./DokumenLelang.css"; 
 
 interface DokumenLelangProps {}
 
 const DokumenLelang: React.FC<DokumenLelangProps> = ({}) => {
   const [form] = Form.useForm();
+  const [submittable, setSubmittable] = React.useState<boolean>(false);
+  const values = Form.useWatch([], form);
 
   const { RangePicker } = DatePicker;
 
@@ -18,8 +20,31 @@ const DokumenLelang: React.FC<DokumenLelangProps> = ({}) => {
     return e?.fileList;
   };
 
+  const onCheck = async () => {
+    try {
+      const values = await form.validateFields();
+      console.log('Success:', values);
+    } catch (errorInfo) {
+      console.log('Failed:', errorInfo);
+    }
+  };
+
   const onFinish = (values: any) => {
     console.log('Received values from form: ', values);
+  };
+
+  const onReset = () => {
+    form.resetFields();
+  }
+
+  const validatePagu = (_: any, value: string) => {
+    const pattern = /^[a-zA-Z0-9]*$/;
+    if (!value) {
+      return Promise.reject(new Error("Field ini wajib diisi"));
+    } else if (!pattern.test(value)) {
+      return Promise.reject(new Error("Hanya karakter alfanumerik diperbolehkan"));
+    }
+    return Promise.resolve();
   };
 
   return (
@@ -28,17 +53,19 @@ const DokumenLelang: React.FC<DokumenLelangProps> = ({}) => {
       layout={"vertical"}
       className="dokumen-lelang-form"
       onFinish={onFinish}
+      variant="outlined"
+      scrollToFirstError
     >
       <div className="form-grid">
-        <Form.Item label="Kode Proyek" name="kodeProyek" className="form-item">
+        <Form.Item required label="Kode Proyek" name="kodeProyek" className="form-item" rules={[{ required: true, message: "Mohon terisikan"}]}>
           <Input placeholder="Masukan kode proyek" />
         </Form.Item>
 
-        <Form.Item label="Judul Lelang" name="judulLelang" className="form-item">
+        <Form.Item required label="Judul Lelang" name="judulLelang" className="form-item" rules={[{ required: true }]}>
           <Input placeholder="Masukan judul lelang" />
         </Form.Item>
 
-           <Form.Item label="Tanggal Mulai Sampai Selesai" name="tanggal">
+           <Form.Item required label="Tanggal Mulai Sampai Selesai" name="tanggal" rules={[{ required: true }]}>
         <RangePicker 
           placeholder={["Mulai", "Selesai"]} 
           format={"DD/MM/YYYY"} 
@@ -46,7 +73,7 @@ const DokumenLelang: React.FC<DokumenLelangProps> = ({}) => {
         />
       </Form.Item>
 
-        <Form.Item label="User / Client" name="user" className="form-item">
+        <Form.Item required label="User / Client" name="user" className="form-item"rules={[{ required: true }]}>
           <Select
             placeholder="Pilih user / client"
             options={[
@@ -57,7 +84,7 @@ const DokumenLelang: React.FC<DokumenLelangProps> = ({}) => {
           />
         </Form.Item>
 
-        <Form.Item label="Sub User / Sub Client" name="subUser" className="form-item">
+        <Form.Item required label="Sub User / Sub Client" name="subUser" className="form-item" rules={[{ required: true }]}>
           <Select
             placeholder="Pilih sub user / sub client"
             options={[
@@ -70,23 +97,23 @@ const DokumenLelang: React.FC<DokumenLelangProps> = ({}) => {
         
       </div>
 
-      <Form.Item label="Pagu" name="pagu" className="form-item">
+      <Form.Item required label="Pagu" name="pagu" className="form-item" rules={[{ required: true, validator: validatePagu }]}>
         <Input placeholder="Masukan pagu" />
       </Form.Item>
 
-      <Form.Item label="HPS" name="hps" className="form-item">
+      <Form.Item required label="HPS" name="hps" className="form-item" rules={[{ required: true }]}>
         <Input placeholder="Masukan HPS" />
       </Form.Item>
 
-      <Form.Item label="Paket Pekerjaan" name="paketPekerjaan" className="form-item">
+      <Form.Item required label="Paket Pekerjaan" name="paketPekerjaan" className="form-item" rules={[{ required: true }]}>
         <Input placeholder="Masukan paket pekerjaan" />
       </Form.Item>
 
-      <Form.Item label="Spek Lelang" name="spekLelang" className="form-item">
+      <Form.Item required label="Spek Lelang" name="spekLelang" className="form-item" rules={[{ required: true }]}>
         <Input placeholder="Masukan spek lelang" />
       </Form.Item>
 
-      <Form.Item label="Status Proyek" name="statusProyek" layout="horizontal">
+      <Form.Item required label="Status Proyek" name="statusProyek" layout="horizontal" rules={[{ required: true }]}>
         <Radio.Group>
           <Radio value="1">Proses Persiapan Tender</Radio>
           <Radio value="2">Submit Harga</Radio>
@@ -95,7 +122,7 @@ const DokumenLelang: React.FC<DokumenLelangProps> = ({}) => {
         </Radio.Group>
       </Form.Item>
 
-      <Form.Item label="Dokumen Proyek" name="dokumenProyek">
+      <Form.Item required label="Dokumen Proyek" name="dokumenProyek" rules={[{ required: true }]}>
         <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
           <Upload.Dragger name="files" action="/upload.do">
             <p className="ant-upload-drag-icon">
@@ -109,10 +136,10 @@ const DokumenLelang: React.FC<DokumenLelangProps> = ({}) => {
 
       <Form.Item>
         <Space>
-          <Button htmlType="submit" className="form-submit-button">
+          <Button htmlType="submit" className="form-submit-button" onClick={onCheck}>
             Submit
           </Button>
-          <Button htmlType="reset" className="form-reset-button" onClick={() => form.resetFields()}>
+          <Button htmlType="reset" className="form-reset-button" onClick={onReset}>
             Reset
           </Button>
         </Space>
