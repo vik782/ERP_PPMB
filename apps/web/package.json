@@ -1,7 +1,9 @@
 {
   "name": "web",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "client side of PPMB ERP",
+  "main": "next.config.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,49 +12,36 @@
     "kill": "kill -9 $(lsof -ti:3000)",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "sb": "npm run build-storybook && npm run storybook"
+    "sb": "npm run build-storybook && npm run storybook",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vik782/ERP_PPMB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vik782/ERP_PPMB/issues"
+  },
+  "homepage": "https://github.com/vik782/ERP_PPMB#readme",
   "dependencies": {
-    "@ant-design/icons": "^5.3.7",
-    "@emotion/styled": "^11.11.5",
-    "@prisma/client": "^5.15.1",
-    "@trpc/client": "^10.34.0",
-    "@trpc/server": "^10.34.0",
-    "@types/node": "^20.3.1",
-    "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
-    "autoprefixer": "10.4.14",
-    "eslint": "^8.42.0",
-    "eslint-config-next": "^14.2.4",
+    "antd": "^5.18.3",
+    "axios": "^1.7.2",
     "next": "^14.2.4",
-    "postcss": "8.4.25",
-    "prisma": "^5.15.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-textarea-autosize": "^8.5.3",
-    "tailwindcss": "3.3.2",
-    "typescript": "^5.1.3"
+    "react-query": "^3.39.3",
+    "storybook": "^8.1.11"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.5.0",
-    "@storybook/addon-essentials": "^8.1.10",
-    "@storybook/addon-interactions": "^8.1.10",
-    "@storybook/addon-links": "^8.1.10",
-    "@storybook/addon-onboarding": "^8.1.10",
-    "@storybook/blocks": "^8.1.10",
-    "@storybook/nextjs": "^8.1.10",
-    "@storybook/react": "^8.1.10",
-    "@storybook/test": "^8.1.10",
-    "@typescript-eslint/eslint-plugin": "^5.48.2",
-    "antd": "^5.18.3",
-    "daisyui": "^3.2.1",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-next": "^0.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.8.0",
-    "storybook": "^8.1.10",
-    "storybook-addon-customize-antd-theme": "^1.1.0"
+    "@chromatic-com/storybook": "^1.6.0",
+    "@storybook/addon-essentials": "^8.1.11",
+    "@storybook/addon-interactions": "^8.1.11",
+    "@storybook/addon-links": "^8.1.11",
+    "@storybook/addon-onboarding": "^8.1.11",
+    "@storybook/nextjs": "^8.1.11",
+    "@types/node": "20.14.9",
+    "@types/react": "18.3.3",
+    "typescript": "5.5.2"
   }
 }

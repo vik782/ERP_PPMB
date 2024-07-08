@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import { sampleItems } from './MenuConfig';
 
 const meta = {
-  title: 'Example/Sidebar',
+  title: 'Layout/Sidebar',
   component: Sidebar,
   tags: ['autodocs'],
 } satisfies Meta<typeof Sidebar>;

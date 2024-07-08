@@ -1,8 +1,7 @@
 import React from 'react';
 import { Layout, MenuProps } from 'antd';
 import SideMenu from './SideMenu';
-
-const { Sider } = Layout;
+import Sider from "antd/lib/layout/Sider";
 
 interface SidebarProps {
   /**
@@ -19,12 +18,13 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ collapsed, sideMenuItems }) => {
   return (
     <Sider 
-      style={{height: '100%', width: '256px', display: 'flex', flexDirection: 'column'}}
       collapsible 
       trigger={null}
       collapsed={collapsed}
+      collapsedWidth={70}
+      width={250}
     >
-      <SideMenu menuItems={sideMenuItems} />
+      <SideMenu menuItems={sideMenuItems} collapsed={collapsed} />
     </Sider>
   );
 };

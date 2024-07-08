@@ -1,18 +1,20 @@
 .topbar {
-    height: 64px;
     top: 0;
     z-index: 1;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f6ffed; /* Adjust the background color if needed */
-    padding: 0 20px;
+    background-color: #DDE2E5; /* Adjust the background color if needed */
+    padding: 0 5px;
 }
-  
-.topbar-left {
+
+.topbar-left, .topbar-right {
     display: flex;
     align-items: center;
+}
+
+.topbar-left {
     color: black; /* Adjust the color if needed */
     font-size: 16px; /* Adjust the font size if needed */
 }
@@ -22,12 +24,23 @@
 }
 
 .topbar-right {
-    display: flex;
-    align-items: center;
     color: black; /* Adjust the color if needed */
 }
 
 .topbar-right > div {
     margin-right: 10px; /* Adjust the spacing between elements */
 }
-  
+
+.menu-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.menu-icon-wrapper:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Optional: Add a hover effect */
+}

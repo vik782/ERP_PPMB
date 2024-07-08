@@ -1,45 +1,51 @@
 /**
  * Config File for what kind of module items each user type can access
+ * This is the Config file for the MenuItems used in Sidebar 
  * 
  * For now, this is hardcoded according to client use case
  * Maybe in long run this can be generated when pulled from database
  */
 
-import {
-    AppstoreOutlined,
-    ContainerOutlined,
-    DesktopOutlined,
-    MailOutlined,
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
-    PieChartOutlined,
-    LogoutOutlined,
-} from '@ant-design/icons';
+import { MODULES } from './ModuleConst';
 import type { MenuProps } from 'antd';
-
-
-
-type MenuItem = Required<MenuProps>['items'][number];
+import {
+  AppstoreOutlined,
+  ContainerOutlined,
+  DesktopOutlined,
+  MailOutlined,
+  PieChartOutlined,
+} from '@ant-design/icons';
 
 export const adminItems: MenuProps['items'] = [
-  { key: '1', label: 'Admin Option 1' },
-  { key: '2', label: 'Admin Option 2' },
+  MODULES.DASHBOARD,
+  MODULES.LELANG,
+  MODULES.RFQ,
+  MODULES.QUOTATION,
+  MODULES.PO,
 ];
 
 export const userItems: MenuProps['items'] = [
-{ key: '3', label: 'User Option 1' },
-{
+  MODULES.DASHBOARD,
+  MODULES.LELANG,
+  {
     key: 'sub1',
     label: 'User Navigation One',
     children: [
-    { key: '5', label: 'User Option 5' },
-    { key: '6', label: 'User Option 6' },
+      MODULES.RFQ,
+      MODULES.RFQ,
     ],
-},
+  },
 ];
 
+export const menuItemsByRole = {
+  admin: adminItems,
+  user: userItems,
+};
+
+
+
 export const sampleItems: MenuProps['items'] = [
-  { key: '1', icon: <PieChartOutlined />, label: 'Option 1' },
+  { key: '1', icon: <PieChartOutlined />, label: 'Test 1' },
   { key: '2', icon: <DesktopOutlined />, label: 'Option 2' },
   { key: '3', icon: <ContainerOutlined />, label: 'Option 3' },
   {
@@ -72,10 +78,6 @@ export const sampleItems: MenuProps['items'] = [
   },
 ];
 
-export const menuItemsByRole = {
-  admin: adminItems,
-  user: userItems,
-};
   
 /**
  * Sample structure for menu
