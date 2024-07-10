@@ -1,12 +1,21 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { Server } from 'http';
+
+let server: Server;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
 
-  await app.listen(Number(process.env.PORT), async () => {
-    console.log(`Server started at: http://localhost:${process.env.PORT}`);
-  });
+  await app.init();
+  const expressApp = app.getHttpAdapter().getInstance();
+  server = new Server(expressApp);
 }
-bootstrap();
+
+export const handler = async (req: any, res: any) => {
+  if (!server) {
+    await bootstrap();
+  }
+  server.emit('request', req, res);
+};
