@@ -2,6 +2,7 @@
 
 import axiosInstance from '@web/utils/axios';
 import { cookies } from 'next/headers';
+import { AxiosError } from 'axios';
 
 export async function loginAction(username: string, password: string) {
   try {
@@ -18,7 +19,22 @@ export async function loginAction(username: string, password: string) {
 
     return data.user;
   } catch (error: any) {
-    throw new Error(error.response?.data?.message || 'Login failed');
+    if (error.isAxiosError) {
+      const status = error.response?.status;
+      switch (status) {
+        case 400:
+          throw new Error('Invalid request. Please check your input and try again.');
+        case 401:
+          throw new Error('Unauthorized. Please check your username and password.');
+        case 404:
+          throw new Error('User not found. Please check your username and try again.');
+        case 500:
+          throw new Error('Internal server error. Please try again later.');
+        default:
+          throw new Error('An unexpected error occurred. Please try again.');
+      }
+    } else {
+      throw new Error('Network error. Please check your connection and try again.');
+    }
   }
 }
-
